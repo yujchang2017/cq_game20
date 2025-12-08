@@ -1,0 +1,15 @@
+{
+  "name": "cq-game20",
+  "version": "1.0.0",
+  "description": "低碳飲食小專家：自主學習遊戲",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
