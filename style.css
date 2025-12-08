@@ -1,0 +1,643 @@
+/* ------------------------------------
+   主色調設定
+------------------------------------ */
+:root {
+  --primary-green: #6bbf59;
+  --deep-green: #395b37;
+  --light-green-bg: #f1f5e9;
+  --border-green: #d4e3c3;
+  --dark-text: #2c3e2c;
+  --accent-yellow: #ffd54f;
+
+  --section-light: #f7f9f4;
+  --section-lighter: #fafcf7;
+  --section-dark: #222;
+}
+
+/* ------------------------------------
+   全站基本設定
+------------------------------------ */
+
+html, body {
+  background: #111 !important;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  background: #f8faff;
+  color: var(--dark-text);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  margin: 0;
+}
+
+/* =======================================================================
+   HERO 區
+======================================================================= */
+
+.hero {
+  position: relative;
+  height: 80vh;
+  background-image: url("https://yingan1998.github.io/low-carbon-game/pic/bg2.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  color: white;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 52px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+.hero-content p {
+  font-size: 22px;
+  opacity: 0.95;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 36px;
+  background: white;
+  color: #333;
+  border-radius: 40px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.hero-btn:hover {
+  background: #e7e7e7;
+  transform: translateY(-3px);
+}
+
+/* =======================================================================
+   Section 通用設定
+======================================================================= */
+.section {
+  padding: 80px 20px;
+}
+
+.section-title {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+/* =======================================================================
+   活動介紹
+======================================================================= */
+
+.intro-section-v2 {
+  background: #f7f9f4;
+  padding: 90px 20px;
+}
+
+.intro-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* 左側文字 */
+.intro-text {
+  font-size: 20px;
+  color: #2d2d2d;
+  line-height: 1.85;
+}
+
+.intro-title {
+  font-size: 50px;
+  font-weight: 900;
+  margin-bottom: 30px;
+  color: #2c3e2c;
+}
+
+.intro-subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  color: #395b37;
+}
+
+.intro-text ul {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.intro-text li {
+  margin-bottom: 6px;
+  font-size: 19px;
+}
+
+/* 右側圖片 */
+.intro-image-box img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  object-fit: cover;
+}
+
+/* 手機版 RWD */
+@media (max-width: 900px) {
+  .intro-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .intro-title {
+    font-size: 36px;
+  }
+
+  .intro-image-box img {
+    width: 90%;
+    margin: 20px auto 0 auto;
+  }
+}
+
+/* =======================================================================
+   遊戲介紹
+======================================================================= */
+
+.game-section {
+  background: #2c3e2c;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.section-title.light {
+  color: white;
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.carousel-card {
+  max-width: 680px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(4px);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25); 
+}
+
+
+.carousel-card img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 15px;
+}
+
+.carousel-card h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+
+.carousel-card p {
+  opacity: 0.95;   
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* =======================================================================
+   活動三步驟+福利
+======================================================================= */
+
+.step-flow-section {
+  background: #f1f5e9 !important;  
+  padding: 80px 20px;
+}
+.step-flow-section .section-title {
+  color: #2c3e2c !important; 
+}
+
+
+/* 外層左右排列 */
+.step-reward-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+/* 左側（步驟） */
+.step-column {
+  flex: 1 1 500px;
+  max-width: 600px;
+}
+
+/* 按鈕 */
+.step-btn {
+  display: inline-block; 
+  padding: 10px 26px;
+  background: #3c5237;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+
+/* 流程圖樣式 */
+.flow-item {
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  margin: 0 auto 30px auto;
+  text-align: center;
+  max-width: 650px;
+  width: 100%;
+}
+
+.flow-item img {
+  width: 260px;
+  border-radius: 12px;
+  margin-bottom: 28px; 
+}
+
+/* 大箭頭 */
+.big-arrow {
+  text-align: center;
+  font-size: 70px;
+  color: #080808;
+  font-weight: 900;
+  line-height: 1;
+  margin: 10px 0 25px 0;
+}
+
+.flow-item h3 {
+  margin-top: 0;
+  margin-bottom: 10px;   
+}
+
+.flow-item p {
+  margin-top: 0;
+  margin-bottom: 20px;  
+}
+
+
+/* =============================== */
+/* 福利卡片  */
+/* =============================== */
+
+.reward-section {
+  background: #333f36; 
+  padding: 80px 20px;
+}
+
+.reward-section .section-title {
+  color: #ffffff;
+}
+
+/* 卡片外層 */
+.reward-card-group {
+  max-width: 900px; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+/* 每張福利卡片 */
+.reward-card {
+  background: rgba(254, 254, 254, 0.786); 
+  padding: 22px 26px;
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+.reward-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.55);
+}
+
+.reward-icon {
+  font-size: 34px;
+  width: 40px;
+}
+
+
+/* 標題文字 */
+.reward-text h4 {
+  color: #000000; 
+  font-weight: 700;
+}
+
+.reward-text p {
+  color: #646464;
+}
+
+
+
+/* RWD：手機 */
+@media (max-width: 768px) {
+
+ 
+  .section {
+    padding: 50px 20px !important;
+  }
+
+  /* 主標題（活動介紹） */
+  .section h2 {
+    font-size: 32px !important;
+    line-height: 1.25;
+    margin-bottom: 20px !important;
+  }
+
+  /* 介紹文字段落 */
+  .section p {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 18px !important;
+    padding: 0 4px;
+    text-align: left !important;
+  }
+
+  /* 子標題（本活動包含 / 孩子將學到） */
+  .section .intro-subtitle,
+  .section h3 {
+    font-size: 22px !important;
+    margin-top: 28px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* 列表 */
+  .section ul {
+    margin-left: 20px !important;
+  }
+
+  .section li {
+    font-size: 17px !important;
+    margin-bottom: 10px !important;
+    line-height: 1.65 !important;
+  }
+
+  .flow-item img {
+    width: 160px;
+  }
+
+  .reward-card {
+    padding: 18px;
+  }
+
+  .reward-icon {
+    font-size: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;       
+    line-height: 1.25;     
+    font-weight: 900;
+    word-break: break-word;
+  }
+
+  .hero-content p {
+    font-size: 18px;       
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  .hero-btn {
+    margin-top: 28px;
+    padding: 12px 28px;
+    font-size: 18px;
+  }
+
+  .intro-section-v2 {
+    padding: 50px 22px;   
+  }
+
+  .intro-title,
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 18px;
+    line-height: 1.2;
+  }
+
+  .intro-text {
+    font-size: 17px;
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  .intro-subtitle {
+    font-size: 20px;
+    margin-top: 26px;
+    margin-bottom: 10px;
+  }
+
+  .intro-text ul {
+    margin-left: 16px;
+  }
+
+  .intro-text li {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+}
+
+
+/* =======================================================================
+   頁尾
+======================================================================= */
+
+.footer {
+  background: #111;
+  color: #ffffff;
+  text-align: center;
+  padding: 26px 0;
+  font-size: 15px;
+  margin-top: 40px;
+}
+
+/* =======================================================================
+   彈跳視窗
+======================================================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  z-index: 9999;
+  padding: 40px 20px;
+  overflow-y: auto;
+  backdrop-filter: blur(4px);
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#introModal .modal-content {
+  width: 100%;
+  max-width: 650px;
+  background: transparent;
+  border-radius: 22px;
+  overflow: visible;
+  position: relative;
+}
+
+/* 關閉按鈕 */
+#introModal .modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: #ffffffcc;
+  border: none;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.close-btn {
+  background: #ccc;
+  color: #333;
+}
+
+/* ================================
+   海報背景
+================================ */
+
+#introModal .poster-v3 {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+#introModal .poster-bg-v3 {
+  background-image: url("https://yingan1998.github.io/low-carbon-game/pic/poster-bg.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding-top: 60%;
+  filter: brightness(0.75);
+  position: relative;
+}
+
+#introModal .poster-mask-v3 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 40, 25, 0.2),
+    rgba(20, 40, 25, 0.55),
+    rgba(20, 40, 25, 0.8)
+  );
+}
+
+/* ================================
+   文字 + 內容卡片
+================================ */
+
+#introModal .poster-inner {
+  position: relative;
+  padding: 0 28px 40px 28px;
+  margin-top: -90px;
+  z-index: 10;
+}
+
+#introModal .poster-h2 {
+  font-size: 38px;
+  text-align: center;
+  margin-bottom: 18px;
+  color: #fff;
+  text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.45);
+}
+
+#introModal .poster-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(4px);
+  padding: 28px 30px;
+  border-radius: 22px;
+  margin-top: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+#introModal .poster-panel .poster-text-v3 {
+  color: #3a3a35;
+  font-size: 18px;
+  line-height: 1.85;
+}
+
+#introModal .poster-btn-v3 {
+  display: block;
+  width: 70%;
+  margin: 36px auto 0 auto;
+  padding: 14px 0;
+  background: #ffffffee;
+  color: #222;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 40px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+#introModal .poster-btn-v3:hover {
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+/* =======================================================================
+   動畫
+======================================================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>低碳飲食小專家：自主學習遊戲</title>
+
+    <!-- 字體 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- 自己的 CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ========================================================= -->
+    <!-- 大標題區 -->
+    <!-- ========================================================= -->
+    <header class="hero">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <h1>低碳飲食小專家<br>
+          自主學習遊戲</h1>
+        <p>用遊戲認識食物、碳排放與永續思維</p>
+
+        <a href="#intro" class="hero-btn">開始了解</a>
+      </div>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- 彈跳視窗 -->
+    <!-- ========================================================= -->
+    <div class="modal-overlay" id="introModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+
+        <div class="poster-v3">
+          <div class="poster-bg-v3"></div>
+          <div class="poster-mask-v3"></div>
+
+          <div class="poster-inner">
+            <h2 class="poster-h2">活動介紹</h2>
+
+            <div class="poster-panel">
+              <div class="poster-text-v3">
+                <p>
+                  親愛的朋友，<br />
+                  我們想邀請正就讀國小或國中的孩子，一同參加本次的<br />
+                  「<strong>低碳飲食自主學習活動</strong>」！
+                </p>
+
+                <p><strong>📘 活動內容包含：</strong></p>
+                <ul>
+                  <li>🌱 四款互動小遊戲</li>
+                  <li>🌱 低碳飲食知識補給站</li>
+                </ul>
+
+                <p><strong>🌿 孩子將認識：</strong></p>
+                <ul>
+                  <li>六大類食物</li>
+                  <li>均衡餐盤設計</li>
+                  <li>低碳排飲食概念</li>
+                  <li>食物碳足跡與環境影響</li>
+                </ul>
+
+                <p>
+                  我們期盼孩子們能在遊戲中理解
+                  <strong>碳排放對氣候的影響</strong>，並逐步啟發<br />
+                  <strong>友善環境、共創美好未來</strong>的行動力。
+                </p>
+              </div>
+            </div>
+
+            <button class="poster-btn-v3 close-btn" onclick="closeModal()">
+              點我進入網站
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 活動介紹 -->
+    <!-- ========================================================= -->
+    <section id="intro" class="intro-section-v2">
+      <div class="intro-container">
+        <!-- 左欄：文字內容 -->
+        <div class="intro-text">
+          <h2 class="intro-title">活動介紹</h2>
+
+          <p>
+            親愛的朋友，我們想邀請正就讀國小或國中的孩子，一同參加本次的
+            <strong>「低碳飲食自主學習活動」</strong>。
+          </p>
+
+          <h3 class="intro-subtitle">🥬 本活動包含：</h3>
+          <ul>
+            <li>四款互動小遊戲</li>
+            <li>低碳飲食知識補給站</li>
+          </ul>
+
+          <h3 class="intro-subtitle">🥬 孩子將學到：</h3>
+          <ul>
+            <li>六大類食物與營養</li>
+            <li>均衡餐盤設計</li>
+            <li>低碳排飲食理念</li>
+            <li>食物碳足跡與永續觀念</li>
+          </ul>
+        </div>
+
+        <!-- 右欄：圖片 -->
+        <div class="intro-image-box">
+          <img src="pic/intro.png" alt="活動圖片" />
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 遊戲介紹 -->
+    <!-- ========================================================= -->
+    <section class="section game-section">
+      <h2 class="section-title light">活動內容介紹</h2>
+
+      <div id="gameCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="carousel-card dark-card">
+              <img src="pic/六大類食物挑戰.png" />
+              <h3>🥦 認識六大類食物</h3>
+              <p>了解常見食物分類與基本營養知識。</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-card dark-card">
+              <img src="pic/碳排挑戰賽.png" />
+              <h3>🌳 裝備碳足跡</h3>
+              <p>知道食材的碳排放，認識永續飲食。</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-card dark-card">
+              <img src="pic/營養餐盤設計大挑戰.png" />
+              <h3>🍽️ 營養餐盤設計</h3>
+              <p>打造屬於自己的均衡飲食餐盤。</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-card dark-card">
+              <img src="pic/營養餐盤拉霸設計.png" />
+              <h3>🎰 營養餐盤拉霸設計</h3>
+              <p>用拉霸機制設計你的營養餐盤。</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-card dark-card">
+              <img src="pic/知識補給站.png" />
+              <h3>💡 知識補給站</h3>
+              <p>學習飲食與環境相關的重要知識。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 輪播按鈕 -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#gameCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#gameCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 活動三步驟+福利 -->
+    <!-- ========================================================= -->
+
+    <section class="section step-flow-section">
+      <h2 class="section-title">活動三步驟</h2>
+
+      <div class="step-flow">
+        <div class="flow-item">
+          <img src="pic/同意書.png" />
+          <h3>步驟 1：閱讀知情同意書</h3>
+          <p>確認研究內容後開始活動。</p>
+          <a class="step-btn" href="https://forms.gle/wa5RDaA8RHk2EEdp9" target="_blank">填寫同意書</a>
+        </div>
+        <div class="big-arrow">↓</div>
+
+        <div class="flow-item">
+          <img src="pic/餐盤.jpg" />
+          <h3 style="color: #6bbf59">步驟 2：開始進行遊戲！</h3>
+          <p>完成同意書後即可開始闖關。</p>
+          <a class="step-btn green" href="https://cqgame2-80ad3a536b00.herokuapp.com/consent" target="_blank">進入遊戲</a>
+        </div>
+        <div class="big-arrow">↓</div>
+
+        <div class="flow-item">
+          <img src="pic/UUID.png" />
+          <h3>步驟 3：完成問卷取得抽獎資格</h3>
+          <p>遊戲達標＋完成問卷即可取得抽獎碼。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reward-section">
+      <h2 class="section-title">活動福利</h2>
+
+      <div class="reward-card-group">
+        <div class="reward-card">
+          <div class="reward-icon">🎉</div>
+          <div class="reward-text">
+            <h4>抽獎資格</h4>
+            <p>完成所有遊戲即可獲得</p>
+          </div>
+        </div>
+
+        <div class="reward-card">
+          <div class="reward-icon">🎁</div>
+          <div class="reward-text">
+            <h4>UUID 抽獎碼</h4>
+            <p>完成問卷即可取得</p>
+          </div>
+        </div>
+
+        <div class="reward-card">
+          <div class="reward-icon">📱</div>
+          <div class="reward-text">
+            <h4>活動 QR Code</h4>
+            <p>系統自動產生專屬 QR Code</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 📝 頁尾 -->
+    <!-- ========================================================= -->
+    <footer class="footer">
+      <p>© 2025 低碳飲食小專家：自主學習遊戲 ｜ All Rights Reserved.</p>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- JS -->
+    <!-- ========================================================= -->
+    <script>
+      window.onload = () => {
+        document.getElementById("introModal").style.display = "flex";
+      };
+      function closeModal() {
+        document.getElementById("introModal").style.display = "none";
+      }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
