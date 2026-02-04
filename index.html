@@ -104,9 +104,14 @@
 
                 <!-- 領獎說明 -->
                 <div style="background: #fff3cd; padding: 15px; border-radius: 10px; margin-top: 15px;">
-                  <p><strong>🎁 領獎方式：</strong></p>
+                  <p><strong>🎁 獎品內容：</strong></p>
                   <ul style="margin: 10px 0; padding-left: 20px;">
-                    <li>獎品：本遊戲實體教具一份</li>
+                    <li><strong style="color: #e74c3c;">🏆 特別獎：</strong>「食材的碳秘密」+「食在永續」兩款桌遊教具</li>
+                    <li><strong style="color: #3498db;">🎁 一般獎：</strong>「均衡飲食餐盤」桌遊教具</li>
+                  </ul>
+                  
+                  <p><strong>📝 領獎方式：</strong></p>
+                  <ul style="margin: 10px 0; padding-left: 20px;">
                     <li>請點擊下方連結填寫領獎資料</li>
                     <li>需上傳遊戲完成後獲得的 <strong>QRcode 圖檔</strong></li>
                     <li>填寫收件人姓名、地址等寄件資訊</li>
@@ -317,7 +322,7 @@
     <!-- ========================================================= -->
     <script>
       // ========== 得獎名單 ==========
-      // 特別獎 (50名)
+      // 特別獎 (50名)「食材的碳秘密」+「食在永續」兩款桌遊教具
       const specialWinners = [
         "d397a40a-affc-4a3e-9649-c8884598761a",
         "f88fc5f2-22cb-4523-9e35-b830394a7e97",
@@ -371,7 +376,7 @@
         "6127df87-4048-4c73-8582-d66b88fb83c9"
       ];
 
-      // 一般獎 (150名)
+      // 一般獎 (150名)「均衡飲食餐盤」教具
       const normalWinners = [
         "6eaf2477-9dc4-46d6-8b68-fa75721e0424",
         "6a32d431-a3fa-443b-979c-1e0ee019ce21",
@@ -558,7 +563,7 @@
           resultDiv.style.background = "#d4edda";
           resultDiv.style.color = "#155724";
           resultDiv.innerHTML = `
-            <strong>🎉🎉 恭喜您獲得【特別獎】！</strong><br>
+            <strong>🎉🎉 恭喜您獲得【特別獎】「食材的碳秘密」+「食在永續」兩款桌遊教具！</strong><br>
             您的 UUID：<code style="background: #fff; padding: 2px 6px; border-radius: 4px;">${input}</code><br>
             請點擊下方「填寫領獎資料表單」按鈕領取獎品！
           `;
@@ -566,7 +571,7 @@
           resultDiv.style.background = "#d4edda";
           resultDiv.style.color = "#155724";
           resultDiv.innerHTML = `
-            <strong>🎉 恭喜您獲得【一般獎】！</strong><br>
+            <strong>🎉 恭喜您獲得【一般獎】「均衡飲食餐盤」教具！</strong><br>
             您的 UUID：<code style="background: #fff; padding: 2px 6px; border-radius: 4px;">${input}</code><br>
             請點擊下方「填寫領獎資料表單」按鈕領取獎品！
           `;
@@ -606,7 +611,7 @@
         });
         html += '</div>';
         
-        html += '<div style="margin-bottom: 15px;"><strong style="color: #3498db;">🎁 一般獎 (150名)：</strong></div>';
+        html += '<div style="margin-bottom: 15px;"><strong style="color: #3498db;">🎁 一般獎 (150名)「均衡飲食餐盤」教具：</strong></div>';
         html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 6px;">';
         normalWinners.forEach((uuid, index) => {
           html += `<span style="background: #e6f3ff; padding: 4px 8px; border-radius: 4px; font-size: 0.8em;">${index + 1}. ${uuid}</span>`;
