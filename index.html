@@ -54,36 +54,73 @@
           <div class="poster-mask-v3"></div>
 
           <div class="poster-inner">
-            <h2 class="poster-h2">🔧 系統維護公告</h2>
+            <h2 class="poster-h2">🎉 抽獎結果公告</h2>
 
             <div class="poster-panel">
               <div class="poster-text-v3">
-                <p style="font-size: 1.1em; color: #e67e22;">
-                  <strong>📢 第一階段活動已於 2026/1/31 圓滿結束！</strong>
+                <p style="font-size: 1.1em; color: #27ae60;">
+                  <strong>🎊 恭喜所有得獎者！</strong>
                 </p>
 
                 <p>
                   感謝所有參與「<strong>低碳飲食自主學習活動</strong>」的朋友們！<br />
-                  您的支持讓這次活動順利完成。
+                  第一階段活動已圓滿結束，以下公布抽獎結果。
                 </p>
 
-                <p><strong>🎯 目前進度：</strong></p>
-                <ul>
-                  <li>🔄 遊戲網頁進行維護中</li>
-                  <li>📊 資料整理與統計作業進行中</li>
-                  <li>🎁 抽獎作業準備中</li>
-                </ul>
+                <!-- UUID 查詢區 -->
+                <div style="background: #f0f8ff; padding: 15px; border-radius: 10px; margin: 15px 0;">
+                  <p style="margin-bottom: 10px;"><strong>🔍 查詢您是否中獎：</strong></p>
+                  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <input 
+                      type="text" 
+                      id="uuidInput" 
+                      placeholder="請輸入您的 UUID" 
+                      style="flex: 1; min-width: 200px; padding: 10px; border: 2px solid #3498db; border-radius: 8px; font-size: 1em;"
+                    />
+                    <button 
+                      onclick="checkWinner()" 
+                      style="padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1em; font-weight: bold;"
+                    >
+                      查詢
+                    </button>
+                  </div>
+                  <div id="searchResult" style="margin-top: 15px; padding: 10px; border-radius: 8px; display: none;"></div>
+                </div>
 
-                <p><strong>📅 重要時程：</strong></p>
-                <ul>
-                  <li>抽獎名單公告日期：<strong>2026年2月5日</strong></li>
-                  <li>届時將於本網頁公告得獎名單</li>
-                </ul>
+                <!-- 得獎名單 -->
+                <div style="margin-top: 15px;">
+                  <p><strong>📋 得獎名單：</strong></p>
+                  <p style="font-size: 0.9em; color: #666;">🏆 特別獎 50 名 ｜ 🎁 一般獎 150 名，共 200 名</p>
+                  <button 
+                    onclick="toggleWinnerList()" 
+                    style="padding: 8px 16px; background: #9b59b6; color: white; border: none; border-radius: 8px; cursor: pointer; margin: 10px 0;"
+                  >
+                    <span id="toggleBtnText">展開完整名單 ▼</span>
+                  </button>
+                  <div id="winnerListContainer" style="display: none; max-height: 300px; overflow-y: auto; background: #f9f9f9; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                    <div id="winnerList" style="font-family: monospace; font-size: 0.85em;"></div>
+                  </div>
+                </div>
 
-                <p style="margin-top: 1em;">
-                  請密切關注本網頁的最新公告，<br />
-                  感謝您的耐心等候！🙏
-                </p>
+                <!-- 領獎說明 -->
+                <div style="background: #fff3cd; padding: 15px; border-radius: 10px; margin-top: 15px;">
+                  <p><strong>🎁 領獎方式：</strong></p>
+                  <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>獎品：本遊戲實體教具一份</li>
+                    <li>請點擊下方連結填寫領獎資料</li>
+                    <li>需上傳遊戲完成後獲得的 <strong>QRcode 圖檔</strong></li>
+                    <li>填寫收件人姓名、地址等寄件資訊</li>
+                    <li>獎品將以掛號方式寄送</li>
+                  </ul>
+                  <a 
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSerzlPXWP1jxym2oVkTGXj3Ezg-2kMhzIhu_xu4FZ06FMTdbA/viewform?usp=publish-editor" 
+                    target="_blank"
+                    style="display: inline-block; padding: 10px 20px; background: #e67e22; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 5px;"
+                  >
+                    📝 填寫領獎資料表單
+                  </a>
+                </div>
+
               </div>
             </div>
 
@@ -279,12 +316,315 @@
     <!-- JS -->
     <!-- ========================================================= -->
     <script>
+      // ========== 得獎名單 ==========
+      // 特別獎 (50名)
+      const specialWinners = [
+        "d397a40a-affc-4a3e-9649-c8884598761a",
+        "f88fc5f2-22cb-4523-9e35-b830394a7e97",
+        "f63b5327-8b78-4a92-b408-665b28bb8201",
+        "3b2a8b3b-161b-4a3e-b2fd-7e358b01b361",
+        "08fd443b-0c1b-4871-b65a-b26f81a9bf6c",
+        "05489938-6ed8-4eff-b5f3-5686dbe91533",
+        "dc865a55-6266-4db8-99d7-b6dc28c1754a",
+        "fb81f840-0331-4b21-ae6d-fb27fd7d8f96",
+        "705142fa-2ff0-456d-9b45-1c42e91d93e9",
+        "fc848390-dcc2-41c0-b516-c8f293767db6",
+        "ce429e15-13fe-445d-9275-03b1e9020801",
+        "a2445522-3bf1-4b5b-bc81-b22a24529393",
+        "61e74615-d7a8-4930-81d2-015630ea1e0a",
+        "aa433b2d-92f9-42d8-9afb-8ca38babc41f",
+        "e26a2dc0-c6e4-491b-b56a-6a8c7d0d8d3f",
+        "a9dbec56-15ca-4d86-a93f-efdf92516d97",
+        "bb6a63e2-f3a0-4721-b240-bfad763e1958",
+        "ec2e9df8-8431-4c73-807a-417205d91aaa",
+        "ca5d5632-60af-4af5-be1e-1ba9948dea36",
+        "e9b3fa0d-299d-472f-8b33-57ea7f23a0ed",
+        "f1e61369-fcbc-4fce-8aeb-3137e1347c10",
+        "6e7038d2-198b-4a39-b8a2-a7cf6ed81a0f",
+        "0f3dc0ad-7d97-4898-ace7-ec268d319186",
+        "cb2fbeab-4ceb-4a27-8dcc-2cd8830769cc",
+        "b058b301-11ef-42d4-9881-6100eac5c466",
+        "cbeafa26-ae82-46c8-a024-2a225615a502",
+        "36cb5d75-2ca1-441b-89a7-ed331772f114",
+        "ddffbdc4-8b3d-41e9-8f27-d20ce34ff1da",
+        "ca8b4d14-0c5a-4008-abdc-8dcbdc3173f6",
+        "e3cc4da3-6589-4fcc-8c42-19b3a3bf3504",
+        "965111da-95a3-4f58-bc70-1441e4954005",
+        "7053b25c-59c2-4425-869f-100e5702ed81",
+        "4dac8919-19b7-4792-bad7-3cb6ce47e574",
+        "2ae4467b-df2f-4402-838e-eda62b08e817",
+        "a21cf53b-5af1-4ba3-9cba-dd8cbb2f2223",
+        "23fbb15d-c7fd-498f-8acb-d8d47e076607",
+        "9582bc37-8546-4ecb-b9ac-25d4c487b602",
+        "0b4e29e0-2583-4b68-825a-606876771fcd",
+        "ccfcf61e-a00a-44f9-8a6a-0ff38bd8c52b",
+        "d76efad3-3f4e-42fd-9473-7c66024e3e65",
+        "67618fd5-75ad-414e-8fa3-e5515c60e469",
+        "34508b9c-8cde-4f67-a529-6a6e3c5cd0b8",
+        "df416608-4a2a-4d46-b652-4a4731ec6c97",
+        "2387e256-8d9b-4b6c-8695-b3e8b13a6b70",
+        "a6128df6-bff4-49dc-b542-2265873dbe87",
+        "e6222a8b-a862-4f7e-bda9-b0480f3c5e1a",
+        "17f201aa-12c2-406c-a9dd-af11f0114111",
+        "4921b046-24ee-4015-9612-6e09f3686e7e",
+        "302c2c22-3389-4d0e-a4f3-f0ed5d3d54e7",
+        "6127df87-4048-4c73-8582-d66b88fb83c9"
+      ];
+
+      // 一般獎 (150名)
+      const normalWinners = [
+        "6eaf2477-9dc4-46d6-8b68-fa75721e0424",
+        "6a32d431-a3fa-443b-979c-1e0ee019ce21",
+        "df416608-4a2a-4d46-b652-4a4731ec6c97",
+        "36cb5d75-2ca1-441b-89a7-ed331772f114",
+        "4a9b61d4-c39f-4877-b2db-73d4220122b4",
+        "6ce7f8a9-9498-408b-a513-72b8b1fff678",
+        "7053b25c-59c2-4425-869f-100e5702ed81",
+        "4c7aba18-e9c9-416d-b966-c7e9616225fe",
+        "a6128df6-bff4-49dc-b542-2265873dbe87",
+        "01439189-e38f-437e-ab44-b4f6e1429fca",
+        "e9bd0185-1575-4f20-899d-36886c23dfea",
+        "de9022cd-cc2b-40a3-a0b6-1ddd40468772",
+        "16ffef22-2460-47e9-a905-a2e6ba43f1d6",
+        "f1e61369-fcbc-4fce-8aeb-3137e1347c10",
+        "fc848390-dcc2-41c0-b516-c8f293767db6",
+        "dfc5a136-60f0-4f98-bb0e-2a2d531f3f34",
+        "ced5dc1f-0df6-493d-aed8-6d0828885cb5",
+        "6127df87-4048-4c73-8582-d66b88fb83c9",
+        "23307cba-975c-4de4-8773-27758d7caa88",
+        "7c3a785b-1229-4d76-b418-1b58f5dd5318",
+        "59be796f-b161-4a94-a293-e2199e90b361",
+        "55e54e3d-c0c0-4e0f-a87b-0bb90547eac9",
+        "b5c3d834-54d8-4587-a813-b289e6702007",
+        "336dd694-c874-49c9-ab61-da2d7cfdb74c",
+        "42da2941-1446-4311-8d5b-014dd3d2df0c",
+        "a21cf53b-5af1-4ba3-9cba-dd8cbb2f2223",
+        "17f201aa-12c2-406c-a9dd-af11f0114111",
+        "b058b301-11ef-42d4-9881-6100eac5c466",
+        "0b0cfda1-492c-4a3b-b2ff-6f976d0e655a",
+        "919c9a5f-92e8-45e0-8f47-0eb1e7f2bd10",
+        "d65bc572-e115-41db-9798-acc8a8bec5ae",
+        "a9bb9636-abb1-4137-8f33-d07c8fe0325c",
+        "4dac8919-19b7-4792-bad7-3cb6ce47e574",
+        "36ec98c4-7a02-4e57-a8ae-006552b57c6a",
+        "8b5c1e25-965b-4286-aef7-efafd74440ef",
+        "26d36959-02af-4829-b7ca-5993cbe155e6",
+        "d76efad3-3f4e-42fd-9473-7c66024e3e65",
+        "4bc30cf8-14d4-4d30-9967-2a259049ca41",
+        "b6120245-a55d-4726-94c6-502603671c83",
+        "2387e256-8d9b-4b6c-8695-b3e8b13a6b70",
+        "2ae4467b-df2f-4402-838e-eda62b08e817",
+        "c2de25cc-79e1-4309-988b-2b339e96fe5f",
+        "ea2b00a8-61c3-4303-ab79-559e8cddccd1",
+        "5a40e558-19d8-4525-8db6-37bf4a7371d9",
+        "36f06a28-58cc-44cb-aac4-7b83ff897406",
+        "ddffbdc4-8b3d-41e9-8f27-d20ce34ff1da",
+        "e114defe-493f-41f6-bd5d-8bb7df738fe8",
+        "95992e29-bda1-4c37-8ecd-9c60adfd9b11",
+        "ca5d5632-60af-4af5-be1e-1ba9948dea36",
+        "e26a2dc0-c6e4-491b-b56a-6a8c7d0d8d3f",
+        "cb2fbeab-4ceb-4a27-8dcc-2cd8830769cc",
+        "e08bc401-54b3-46d2-b0e8-de60a5f4652d",
+        "61e74615-d7a8-4930-81d2-015630ea1e0a",
+        "08fd443b-0c1b-4871-b65a-b26f81a9bf6c",
+        "f88fc5f2-22cb-4523-9e35-b830394a7e97",
+        "910787ba-1929-4964-8555-fe47c9bce413",
+        "fb81f840-0331-4b21-ae6d-fb27fd7d8f96",
+        "89d94aa8-474c-49e8-a09e-b0bad989935f",
+        "f63b5327-8b78-4a92-b408-665b28bb8201",
+        "de9b561e-6df6-44b7-b22f-9dc7726254c5",
+        "e1eb88ec-16f2-494c-a425-bf2ae8b18c83",
+        "1db4f34c-d2e4-4622-bce0-5bbb1514e6df",
+        "3df8fd65-3645-40a9-925f-a3de9e163e43",
+        "d283c42a-22c7-4874-b077-62aad8237ff1",
+        "a9dbec56-15ca-4d86-a93f-efdf92516d97",
+        "5cc74ab5-a7ec-4143-836f-e8b16706113b",
+        "ca15fc90-2042-437f-9109-1e0a7c5b3a2a",
+        "716dd954-f0da-44ee-bc43-0a83403c9f2e",
+        "67618fd5-75ad-414e-8fa3-e5515c60e469",
+        "8435fd77-43a7-4589-aee1-c81cc07f9e9c",
+        "1ebcf9ff-0ce4-4fd3-8753-ced61fca2a1f",
+        "0c5388e9-40fa-4998-b86c-ea2d0bda2f12",
+        "7443b54b-b6de-4541-9755-e8b81d478f83",
+        "a93d7681-d62b-4f9e-8d1b-5d0f6780f7c8",
+        "34508b9c-8cde-4f67-a529-6a6e3c5cd0b8",
+        "32f194dc-6f12-4af2-84ed-a8bf2d6cf78b",
+        "b7a8f96f-efd9-4b9c-9739-ab1ba75c91ba",
+        "c452058c-ad0c-41f9-a822-89a5dc731c5a",
+        "c6f72e4a-f30b-4cd5-ab36-3a61d38b953f",
+        "7219e3fd-77e4-433b-9447-cc993ce54f28",
+        "ce429e15-13fe-445d-9275-03b1e9020801",
+        "ebbc2a25-8050-4f7c-a7d6-7c0ed39aef66",
+        "afca4a4a-c127-4211-b36e-b9d3240dc4d9",
+        "3e4138a7-1905-44fe-b868-3b3e230bc0ac",
+        "e9b3fa0d-299d-472f-8b33-57ea7f23a0ed",
+        "05489938-6ed8-4eff-b5f3-5686dbe91533",
+        "3f3f791d-2b69-44e7-9153-4533f24abc0d",
+        "82fc0cc7-a038-4287-8b19-1d0708a8b504",
+        "e010d2f4-c581-4edd-bd6c-80a05f31e5ce",
+        "e3f8d6d6-2cee-4e7c-a8ee-5e0de309ea3a",
+        "f1f6cd72-6404-487d-a15f-34b7d1306673",
+        "9d5c1507-5f44-4e22-9ce4-3de7e7d6c795",
+        "3409af8f-c57d-4330-a7ce-62444951ddfb",
+        "7e35f924-78de-4700-9b1b-c120d8ee95fd",
+        "99dfc966-b17e-466f-8e01-479394c446c4",
+        "302c2c22-3389-4d0e-a4f3-f0ed5d3d54e7",
+        "117db07f-6ff9-4e17-b03e-69cc303adf70",
+        "9582bc37-8546-4ecb-b9ac-25d4c487b602",
+        "59499d9c-ec4d-453f-9770-fde9361e7684",
+        "9165348b-4c42-4e52-847d-a38d93d7d60e",
+        "4a29c64c-1a4c-4b51-831a-a715c94a6202",
+        "906b4e7b-ba0f-4566-8334-57586ecb98e3",
+        "5c5d9799-945e-406e-a26a-9b3d4f7e1ac1",
+        "8d0b5ccb-f65d-45fb-8873-399bc620a705",
+        "fbfc4b96-bb67-4bb5-a75c-1cab0dc96e7d",
+        "e08bb92c-696d-424b-bccb-077d84da2f40",
+        "bd3dde42-efc3-4279-9c2a-dbd3db963c42",
+        "6f2860fa-0009-407e-bb4b-50537e73c92b",
+        "749aee7b-3473-4d31-b529-a1ad6435bd4b",
+        "b368a00e-773b-4b82-99bd-2ac9a7d50f5f",
+        "eb09da37-e468-4673-a4cf-ec0c19c6078c",
+        "44ac563d-7a97-4fbb-bcc2-f9004f141228",
+        "6b61ec9f-98a1-4f34-82e2-4f48cfe09997",
+        "7a5b6648-8e52-4b36-9aab-7356ea29dd3b",
+        "ff26276d-1ceb-4744-b53c-35a7b6d5625d",
+        "2eb4886f-7e94-4d5f-825e-4d8a8e821de1",
+        "97b8ea0b-9a6c-4457-b802-1b278a6045ab",
+        "96668bf0-cce3-4c33-99ae-54d1515f4bd5",
+        "5b0152f6-c9e2-48fd-ab14-64138311d96d",
+        "e6222a8b-a862-4f7e-bda9-b0480f3c5e1a",
+        "e8e9ca6a-6f68-4cea-a8f5-e3f079165f2a",
+        "0b4e29e0-2583-4b68-825a-606876771fcd",
+        "84ac42e3-c5cd-4b12-8e81-74b2a31d19d9",
+        "23fbb15d-c7fd-498f-8acb-d8d47e076607",
+        "7fe1f569-ee33-42c2-ad59-e74cc81ed818",
+        "d4f19195-fd98-4258-8a1b-61fc85bf714e",
+        "cbeafa26-ae82-46c8-a024-2a225615a502",
+        "aa433b2d-92f9-42d8-9afb-8ca38babc41f",
+        "d397a40a-affc-4a3e-9649-c8884598761a",
+        "90bb5694-5566-4d7d-9220-232a12ab67c6",
+        "e4614417-78fe-44f0-9bd3-f769b5930b53",
+        "aaed676b-79db-4edc-89e3-0c7b0d958830",
+        "bb6a63e2-f3a0-4721-b240-bfad763e1958",
+        "d5a433c1-1367-46d3-b551-cf5640bcd8b6",
+        "785a9f49-28c2-4d65-9d09-e4ae696281ec",
+        "b719c899-e73c-4150-9bf2-c457150ddbf2",
+        "a2445522-3bf1-4b5b-bc81-b22a24529393",
+        "3b2a8b3b-161b-4a3e-b2fd-7e358b01b361",
+        "c9b7d723-40bd-4cc8-ab19-75fc8f28b492",
+        "ebaced82-541c-4d67-a4af-c1c3c94b8684",
+        "32a25411-c0eb-478e-9414-a6c70555efb6",
+        "0c6dd6c2-f597-4ecc-87b1-68bb0749d9ea",
+        "6b2e3b4d-62b7-47c8-a0db-5f1c558001f9",
+        "4921b046-24ee-4015-9612-6e09f3686e7e",
+        "ec2e9df8-8431-4c73-807a-417205d91aaa",
+        "451150d9-9732-4c1b-bc9b-e7b1a85e9a49",
+        "91d3d3a1-843a-4a80-aed7-188157645917",
+        "dc865a55-6266-4db8-99d7-b6dc28c1754a",
+        "ca8b4d14-0c5a-4008-abdc-8dcbdc3173f6",
+        "8c3d40a1-059e-41c1-bd99-cf55edb34902"
+      ];
+
+      // 合併所有得獎者
+      const allWinners = [...new Set([...specialWinners, ...normalWinners])];
+
       window.onload = () => {
         document.getElementById("introModal").style.display = "flex";
+        renderWinnerList();
       };
+
       function closeModal() {
         document.getElementById("introModal").style.display = "none";
       }
+
+      // 查詢是否中獎
+      function checkWinner() {
+        const input = document.getElementById("uuidInput").value.trim().toLowerCase();
+        const resultDiv = document.getElementById("searchResult");
+        
+        if (!input) {
+          resultDiv.style.display = "block";
+          resultDiv.style.background = "#fff3cd";
+          resultDiv.style.color = "#856404";
+          resultDiv.innerHTML = "⚠️ 請輸入您的 UUID";
+          return;
+        }
+
+        const isSpecial = specialWinners.some(uuid => uuid.toLowerCase() === input);
+        const isNormal = normalWinners.some(uuid => uuid.toLowerCase() === input);
+        
+        resultDiv.style.display = "block";
+        if (isSpecial) {
+          resultDiv.style.background = "#d4edda";
+          resultDiv.style.color = "#155724";
+          resultDiv.innerHTML = `
+            <strong>🎉🎉 恭喜您獲得【特別獎】！</strong><br>
+            您的 UUID：<code style="background: #fff; padding: 2px 6px; border-radius: 4px;">${input}</code><br>
+            請點擊下方「填寫領獎資料表單」按鈕領取獎品！
+          `;
+        } else if (isNormal) {
+          resultDiv.style.background = "#d4edda";
+          resultDiv.style.color = "#155724";
+          resultDiv.innerHTML = `
+            <strong>🎉 恭喜您獲得【一般獎】！</strong><br>
+            您的 UUID：<code style="background: #fff; padding: 2px 6px; border-radius: 4px;">${input}</code><br>
+            請點擊下方「填寫領獎資料表單」按鈕領取獎品！
+          `;
+        } else {
+          resultDiv.style.background = "#f8d7da";
+          resultDiv.style.color = "#721c24";
+          resultDiv.innerHTML = `
+            <strong>😢 很抱歉，您未中獎</strong><br>
+            您的 UUID：<code style="background: #fff; padding: 2px 6px; border-radius: 4px;">${input}</code><br>
+            感謝您的參與，期待下次活動再見！
+          `;
+        }
+      }
+
+      // 切換顯示/隱藏得獎名單
+      function toggleWinnerList() {
+        const container = document.getElementById("winnerListContainer");
+        const btnText = document.getElementById("toggleBtnText");
+        
+        if (container.style.display === "none") {
+          container.style.display = "block";
+          btnText.textContent = "收合名單 ▲";
+        } else {
+          container.style.display = "none";
+          btnText.textContent = "展開完整名單 ▼";
+        }
+      }
+
+      // 渲染得獎名單
+      function renderWinnerList() {
+        const listContainer = document.getElementById("winnerList");
+        
+        let html = '<div style="margin-bottom: 15px;"><strong style="color: #e74c3c;">🏆 特別獎 (50名)：</strong></div>';
+        html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 6px; margin-bottom: 20px;">';
+        specialWinners.forEach((uuid, index) => {
+          html += `<span style="background: #ffe6e6; padding: 4px 8px; border-radius: 4px; font-size: 0.8em;">${index + 1}. ${uuid}</span>`;
+        });
+        html += '</div>';
+        
+        html += '<div style="margin-bottom: 15px;"><strong style="color: #3498db;">🎁 一般獎 (150名)：</strong></div>';
+        html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 6px;">';
+        normalWinners.forEach((uuid, index) => {
+          html += `<span style="background: #e6f3ff; padding: 4px 8px; border-radius: 4px; font-size: 0.8em;">${index + 1}. ${uuid}</span>`;
+        });
+        html += '</div>';
+        
+        listContainer.innerHTML = html;
+      }
+
+      // 按 Enter 鍵也可以查詢
+      document.addEventListener("DOMContentLoaded", () => {
+        const input = document.getElementById("uuidInput");
+        if (input) {
+          input.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") checkWinner();
+          });
+        }
+      });
     </script>
 
     <!-- Bootstrap JS -->

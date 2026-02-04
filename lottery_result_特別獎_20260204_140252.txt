@@ -1,0 +1,61 @@
+============================================================
+【特別獎】中獎名單
+抽獎時間: 2026-02-04 14:03:51
+中獎人數: 50 人
+候選名單來源: c:\Users\yjchang\cq_game2\20260201log\lottery_special_prize.csv
+候選人數: 102 人
+候選名單摘要 SHA-256: 16d1b1f2b7a3ec636ad2eb8ca76f71a46b636b51af16c2ec0b4389804c9ba624
+中獎名單摘要 SHA-256: 9f35332e428c2b2b21868fa20580310ae8ddb482b99189dcb3553768d9ec4aab
+驗證指令: python lottery_draw.py --verify "c:\Users\yjchang\cq_game2\20260201log\lottery_special_prize.csv" --expected 16d1b1f2b7a3ec636ad2eb8ca76f71a46b636b51af16c2ec0b4389804c9ba624
+============================================================
+
+第  1 位: ID= 46, UUID=d397a40a-affc-4a3e-9649-c8884598761a
+第  2 位: ID= 66, UUID=f88fc5f2-22cb-4523-9e35-b830394a7e97
+第  3 位: ID= 41, UUID=f63b5327-8b78-4a92-b408-665b28bb8201
+第  4 位: ID= 47, UUID=3b2a8b3b-161b-4a3e-b2fd-7e358b01b361
+第  5 位: ID= 74, UUID=08fd443b-0c1b-4871-b65a-b26f81a9bf6c
+第  6 位: ID= 67, UUID=05489938-6ed8-4eff-b5f3-5686dbe91533
+第  7 位: ID= 61, UUID=dc865a55-6266-4db8-99d7-b6dc28c1754a
+第  8 位: ID= 15, UUID=fb81f840-0331-4b21-ae6d-fb27fd7d8f96
+第  9 位: ID= 37, UUID=705142fa-2ff0-456d-9b45-1c42e91d93e9
+第 10 位: ID= 76, UUID=fc848390-dcc2-41c0-b516-c8f293767db6
+第 11 位: ID= 13, UUID=ce429e15-13fe-445d-9275-03b1e9020801
+第 12 位: ID= 57, UUID=a2445522-3bf1-4b5b-bc81-b22a24529393
+第 13 位: ID= 91, UUID=61e74615-d7a8-4930-81d2-015630ea1e0a
+第 14 位: ID= 23, UUID=aa433b2d-92f9-42d8-9afb-8ca38babc41f
+第 15 位: ID= 32, UUID=e26a2dc0-c6e4-491b-b56a-6a8c7d0d8d3f
+第 16 位: ID= 40, UUID=a9dbec56-15ca-4d86-a93f-efdf92516d97
+第 17 位: ID= 98, UUID=bb6a63e2-f3a0-4721-b240-bfad763e1958
+第 18 位: ID= 17, UUID=ec2e9df8-8431-4c73-807a-417205d91aaa
+第 19 位: ID= 69, UUID=ca5d5632-60af-4af5-be1e-1ba9948dea36
+第 20 位: ID= 24, UUID=e9b3fa0d-299d-472f-8b33-57ea7f23a0ed
+第 21 位: ID= 73, UUID=f1e61369-fcbc-4fce-8aeb-3137e1347c10
+第 22 位: ID= 21, UUID=6e7038d2-198b-4a39-b8a2-a7cf6ed81a0f
+第 23 位: ID= 50, UUID=0f3dc0ad-7d97-4898-ace7-ec268d319186
+第 24 位: ID= 45, UUID=cb2fbeab-4ceb-4a27-8dcc-2cd8830769cc
+第 25 位: ID= 78, UUID=b058b301-11ef-42d4-9881-6100eac5c466
+第 26 位: ID= 99, UUID=cbeafa26-ae82-46c8-a024-2a225615a502
+第 27 位: ID=  2, UUID=36cb5d75-2ca1-441b-89a7-ed331772f114
+第 28 位: ID= 65, UUID=ddffbdc4-8b3d-41e9-8f27-d20ce34ff1da
+第 29 位: ID= 10, UUID=ca8b4d14-0c5a-4008-abdc-8dcbdc3173f6
+第 30 位: ID= 29, UUID=e3cc4da3-6589-4fcc-8c42-19b3a3bf3504
+第 31 位: ID= 87, UUID=965111da-95a3-4f58-bc70-1441e4954005
+第 32 位: ID= 93, UUID=7053b25c-59c2-4425-869f-100e5702ed81
+第 33 位: ID=  9, UUID=4dac8919-19b7-4792-bad7-3cb6ce47e574
+第 34 位: ID= 16, UUID=2ae4467b-df2f-4402-838e-eda62b08e817
+第 35 位: ID=  5, UUID=a21cf53b-5af1-4ba3-9cba-dd8cbb2f2223
+第 36 位: ID= 77, UUID=23fbb15d-c7fd-498f-8acb-d8d47e076607
+第 37 位: ID= 82, UUID=9582bc37-8546-4ecb-b9ac-25d4c487b602
+第 38 位: ID= 63, UUID=0b4e29e0-2583-4b68-825a-606876771fcd
+第 39 位: ID= 49, UUID=ccfcf61e-a00a-44f9-8a6a-0ff38bd8c52b
+第 40 位: ID= 14, UUID=d76efad3-3f4e-42fd-9473-7c66024e3e65
+第 41 位: ID= 20, UUID=67618fd5-75ad-414e-8fa3-e5515c60e469
+第 42 位: ID= 89, UUID=34508b9c-8cde-4f67-a529-6a6e3c5cd0b8
+第 43 位: ID= 35, UUID=df416608-4a2a-4d46-b652-4a4731ec6c97
+第 44 位: ID=100, UUID=2387e256-8d9b-4b6c-8695-b3e8b13a6b70
+第 45 位: ID= 62, UUID=a6128df6-bff4-49dc-b542-2265873dbe87
+第 46 位: ID= 38, UUID=e6222a8b-a862-4f7e-bda9-b0480f3c5e1a
+第 47 位: ID= 97, UUID=17f201aa-12c2-406c-a9dd-af11f0114111
+第 48 位: ID= 68, UUID=4921b046-24ee-4015-9612-6e09f3686e7e
+第 49 位: ID= 51, UUID=302c2c22-3389-4d0e-a4f3-f0ed5d3d54e7
+第 50 位: ID=102, UUID=6127df87-4048-4c73-8582-d66b88fb83c9
